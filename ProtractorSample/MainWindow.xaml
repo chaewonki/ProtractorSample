@@ -1,0 +1,17 @@
+﻿<Window x:Class="ProtractorSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProtractorSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- 캔버스 백그라운드 설정하지 않으면 Transparent, 마우스 이벤트를 잡지 못함 -->
+        <Canvas x:Name="cnvDrawing"
+                MouseLeftButtonDown="cnvDrawing_MouseLeftButtonDown"
+                MouseMove="cnvDrawing_MouseMove"
+                MouseLeftButtonUp="cnvDrawing_MouseLeftButtonUp"
+                Background="White"/>
+    </Grid>
+</Window>
