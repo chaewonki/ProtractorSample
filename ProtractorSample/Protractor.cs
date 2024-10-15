@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -45,8 +39,6 @@ namespace ProtractorSample
             set => SetValue(EndPoint2Property, value);
         }
 
-        #endregion
-
         #region 각도기 표시를 위한 상수 정의
 
         private const double ARCRADIUS = 50;
@@ -55,11 +47,10 @@ namespace ProtractorSample
 
         #endregion
 
+        #endregion
+
         #region 메소드 재정의
 
-        // DefiningGeometry와 OnRender의 구분
-        // 사용자의 자유로운 움직임에 따라 DefiningGeometry와 OnRender를 재정의 하기가 어렵다.
-        // 객체지향
         protected override Geometry DefiningGeometry
         {
             get
@@ -87,12 +78,11 @@ namespace ProtractorSample
 
         private void DrawLines(StreamGeometryContext ctx)
         {
-            // 선을 그리기위한 적절한 파라미터
             ctx.BeginFigure(StartPoint, false, false);
-            ctx.LineTo(EndPoint1, true, true);
+            ctx.LineTo(EndPoint1, true, false);
 
             ctx.BeginFigure(StartPoint, false, false);
-            ctx.LineTo(EndPoint2, true, true);
+            ctx.LineTo(EndPoint2, true, false);
         }
 
         private void DrawArc(StreamGeometryContext ctx)
@@ -124,7 +114,6 @@ namespace ProtractorSample
             drawingContext.DrawText(formattedText, textPosition);
         }
 
-        //180도 넘어가면 호의 모양도 적절히 바꾸어 주기 위해 벡터 변경
         private (Vector vector1, Vector vectro2, double angle) CalculateVectorsAndAngle()
         {
             var vector1 = EndPoint1 - StartPoint;

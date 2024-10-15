@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!-- 캔버스 백그라운드 설정하지 않으면 Transparent, 마우스 이벤트를 잡지 못함 -->
         <Canvas x:Name="cnvDrawing"
                 MouseLeftButtonDown="cnvDrawing_MouseLeftButtonDown"
                 MouseMove="cnvDrawing_MouseMove"
