@@ -87,10 +87,10 @@ namespace ProtractorSample
 
         private void DrawArc(StreamGeometryContext ctx)
         {
-            var (vector1, vectro2, _) = CalculateVectorsAndAngle();
+            var (vector1, vector2, _) = CalculateVectorsAndAngle();
 
             var arcStart = StartPoint + vector1 * ARCRADIUS;
-            var arcEnd = StartPoint + vectro2 * ARCRADIUS;
+            var arcEnd = StartPoint + vector2 * ARCRADIUS;
 
             ctx.BeginFigure(arcStart, false, false);
             ctx.ArcTo(arcEnd, new Size(ARCRADIUS, ARCRADIUS), 0, false, SweepDirection.Clockwise, true, false);
@@ -114,7 +114,7 @@ namespace ProtractorSample
             drawingContext.DrawText(formattedText, textPosition);
         }
 
-        private (Vector vector1, Vector vectro2, double angle) CalculateVectorsAndAngle()
+        private (Vector vector1, Vector vector2, double angle) CalculateVectorsAndAngle()
         {
             var vector1 = EndPoint1 - StartPoint;
             var vector2 = EndPoint2 - StartPoint;
